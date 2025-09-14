@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 class BrandColors{
 
-  static const Color brandColor = Colors.indigo;
+  static const Color brandColor =  Color(0xFFFF8A00);
 
 
   static const Color white = Colors.white;

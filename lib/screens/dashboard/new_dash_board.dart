@@ -4,12 +4,15 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../deposit/deposit.dart';
 
 class NewUserDashboard extends StatelessWidget {
-  const NewUserDashboard({super.key});
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  NewUserDashboard({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       // backgroundColor: Colors.grey[50],
+      endDrawer: _buildDrawer(context),
       appBar: AppBar(
         // leading: Padding(
         //   padding: const EdgeInsets.all(8.0),
@@ -19,11 +22,20 @@ class NewUserDashboard extends StatelessWidget {
         title: SvgPicture.asset('assets/icons/code2earn_logo.svg',height: 50,),
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-          Padding(
-            padding: const EdgeInsets.only(right: 12.0),
-            child: CircleAvatar(child: Icon(Icons.person, color: Colors.white), backgroundColor: Colors.grey[800]),
+          GestureDetector(
+            onTap: (){
+              _scaffoldKey.currentState?.openEndDrawer();
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(right: 12.0),
+              child: CircleAvatar(child: Icon(Icons.person, color: Colors.white), backgroundColor: Colors.grey[800]),
+            ),
           )
         ],
+        elevation: 0,
+        scrolledUnderElevation: 0,
+
+
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
@@ -153,6 +165,32 @@ class NewUserDashboard extends StatelessWidget {
       ),
     );
   }
+  Drawer _buildDrawer(BuildContext ctx) {
+    return Drawer(
+      child: SafeArea(
+        child: Column(
+          children: [
+            DrawerHeader(child: Row(children: [
+              Image.asset('assets/code2earn_logo.png', width: 48, height: 48),
+              SizedBox(width: 12),
+              Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.center, children: [
+                Text('Code2Earn', style: TextStyle(fontWeight: FontWeight.bold)),
+                Text('Daily DSA Habit', style: TextStyle(fontSize: 12, color: Colors.black54)),
+              ])
+            ])),
+            ListTile(leading: Icon(Icons.home), title: Text('Home'), onTap: () => Navigator.pop(ctx)),
+            ListTile(leading: Icon(Icons.task), title: Text('Challenges'), onTap: () {}),
+            ListTile(leading: Icon(Icons.account_balance_wallet), title: Text('Wallet'), onTap: () {}),
+            ListTile(leading: Icon(Icons.history), title: Text('History'), onTap: () {}),
+            ListTile(leading: Icon(Icons.emoji_events), title: Text('Leaderboard'), onTap: () {}),
+            Spacer(),
+            ListTile(leading: Icon(Icons.help_outline), title: Text('Help'), onTap: () {}),
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget _depositBanner(BuildContext ctx) {
     return Container(
       width: double.infinity,
