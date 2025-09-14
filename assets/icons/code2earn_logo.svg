@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="54" viewBox="0 0 220 54" fill="none">
+  <!-- Left Angular Bracket ( < ) -->
+  <path d="M15 17L5 27L15 37L18 34L10 27L18 20L15 17Z" fill="#FF8C00"/>
+  <!-- Right Angular Bracket ( > ) -->
+  <path d="M45 17L55 27L45 37L42 34L50 27L42 20L45 17Z" fill="#FF8C00"/>
+  <!-- Dollar Coin (enlarged) -->
+  <circle cx="30" cy="27" r="10" fill="#FFD700" stroke="#FF8C00" stroke-width="2"/>
+  <text x="26" y="32" font-size="12" font-family="Arial" font-weight="bold" fill="#FF8C00">$</text>
+  <!-- Code2Earn Text -->
+  <text x="70" y="32" font-size="20" font-family="Arial" font-weight="bold" fill="#0D1B2A">Code2Earn</text>
+</svg>
