@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../utils/app_utils.dart';
 import '../../../widgets/app_button.dart';
@@ -35,12 +36,13 @@ class _LoginScreenState extends State<LoginScreen> {
         margin: EdgeInsets.symmetric(horizontal: 20.w),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(width: 96.w, height: 90.h),
 
-            Image.asset(
-              'assets/icons/icon.png',
-              height: 120.sp,
+            SvgPicture.asset(
+              'assets/icons/code2earn_logo.svg',
+              height: 50.sp,
             ),
             SizedBox(height: 16.0),
             // Text(
@@ -104,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
               "Sign up ",
               style: TextStyle(
                   fontSize: 15.sp,
-                  color: Colors.blue,
+                  color: Colors.black,
                   fontWeight: FontWeight.bold),
             ),
           ),
@@ -142,7 +144,7 @@ class _LoginScreenState extends State<LoginScreen> {
           'Forgot password?',
           style: TextStyle(
             fontSize: 13.sp,
-            color: Colors.blue,
+            color: Colors.black,
             fontWeight: FontWeight.w500,
           ),
         ),
